@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOB Ecosystem</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+    min-height: 100vh;
+  }
+
+  header {
+    text-align: center;
+    padding: 3.5rem 1rem 2rem;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    border-bottom: 1px solid #1e293b;
+  }
+  header h1 {
+    font-size: 2.6rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #38bdf8, #818cf8, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+  }
+  header p {
+    color: #94a3b8;
+    font-size: 1.1rem;
+    max-width: 540px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  main { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+
+  .section-title {
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #334155;
+  }
+  .section-title.ln  { color: #38bdf8; border-color: #38bdf8; }
+  .section-title.m3  { color: #a78bfa; border-color: #a78bfa; }
+  .section-title.co  { color: #34d399; border-color: #34d399; }
+
+  .section { margin-bottom: 2.5rem; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: #475569;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+  }
+
+  .icon {
+    flex-shrink: 0;
+    width: 46px; height: 46px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.35rem;
+  }
+  .icon.ln { background: rgba(56,189,248,0.15); }
+  .icon.m3 { background: rgba(167,139,250,0.15); }
+  .icon.co { background: rgba(52,211,153,0.15); }
+
+  .card-body h3 {
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    color: #f1f5f9;
+  }
+  .card-body p {
+    font-size: 0.88rem;
+    color: #94a3b8;
+    line-height: 1.55;
+  }
+
+  footer {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: #475569;
+    font-size: 0.85rem;
+    border-top: 1px solid #1e293b;
+  }
+  footer a { color: #64748b; text-decoration: none; }
+  footer a:hover { color: #94a3b8; }
+
+  @media (max-width: 640px) {
+    header h1 { font-size: 1.8rem; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>FOB Ecosystem</h1>
+  <p>Your complete hub for Infor ERP training, certifications, job resources, and more — powered by FullOnBaan.</p>
+</header>
+
+<main>
+
+  <!-- Infor LN -->
+  <div class="section">
+    <div class="section-title ln">Infor LN</div>
+    <div class="grid">
+
+      <a class="card" href="https://fobrepo.vercel.app/" target="_blank" rel="noopener">
+        <div class="icon ln">📚</div>
+        <div class="card-body">
+          <h3>FOB Repository</h3>
+          <p>Centralized knowledge base with documentation, guides, and reference material for Infor LN modules and configurations.</p>
+        </div>
+      </a>
+
+      <a class="card" href="https://fobtraining.vercel.app/" target="_blank" rel="noopener">
+        <div class="icon ln">🎓</div>
+        <div class="card-body">
+          <h3>FOB Training</h3>
+          <p>Structured learning paths and training courses covering Infor LN functional and technical topics from beginner to advanced.</p>
+        </div>
+      </a>
+
+      <a class="card" href="https://fobinterview.vercel.app/" target="_blank" rel="noopener">
+        <div class="icon ln">💬</div>
+        <div class="card-body">
+          <h3>FOB Interview Prep</h3>
+          <p>Practice questions and scenario-based exercises to prepare for Infor LN consultant and developer interviews.</p>
+        </div>
+      </a>
+
+      <a class="card" href="https://fobjobs.vercel.app/" target="_blank" rel="noopener">
+        <div class="icon ln">💼</div>
+        <div class="card-body">
+          <h3>FOB Jobs</h3>
+          <p>Curated job board featuring Infor LN openings — find consultant, developer, and analyst roles across the globe.</p>
+        </div>
+      </a>
+
+      <a class="card" href="https://fobexams.vercel.app/" target="_blank" rel="noopener">
+        <div class="icon ln">📝</div>
+        <div class="card-body">
+          <h3>FOB Exams</h3>
+          <p>Mock exams and quizzes aligned with Infor LN certification topics to test your knowledge and track your readiness.</p>
+        </div>
+      </a>
+
+      <a class="card" href="https://fobplaybook.vercel.app/" target="_blank" rel="noopener">
+        <div class="icon ln">📖</div>
+        <div class="card-body">
+          <h3>FOB Playbook</h3>
+          <p>Step-by-step implementation playbooks, best practices, and proven strategies for Infor LN project delivery.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Infor M3 -->
+  <div class="section">
+    <div class="section-title m3">Infor M3</div>
+    <div class="grid">
+
+      <a class="card" href="https://fobm3training.vercel.app/" target="_blank" rel="noopener">
+        <div class="icon m3">🎓</div>
+        <div class="card-body">
+          <h3>FOB M3 Training</h3>
+          <p>Dedicated training platform for Infor M3 — covering functional modules, workflows, and hands-on exercises.</p>
+        </div>
+      </a>
+
+      <a class="card" href="https://fobm3exams.vercel.app/" target="_blank" rel="noopener">
+        <div class="icon m3">📝</div>
+        <div class="card-body">
+          <h3>FOB M3 Exams</h3>
+          <p>Practice tests and certification prep materials specifically designed for Infor M3 professionals.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- Company -->
+  <div class="section">
+    <div class="section-title co">Company</div>
+    <div class="grid">
+
+      <a class="card" href="https://www.fullonbaan.com/" target="_blank" rel="noopener">
+        <div class="icon co">🌐</div>
+        <div class="card-body">
+          <h3>FullOnBaan.com</h3>
+          <p>The official FullOnBaan website — learn about our mission, services, and the team behind the FOB Ecosystem.</p>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  &copy; 2026 <a href="https://www.fullonbaan.com/" target="_blank" rel="noopener">FullOnBaan</a>. All rights reserved.
+</footer>
+
+</body>
+</html>
