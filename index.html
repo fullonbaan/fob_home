@@ -3,228 +3,398 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FOB Ecosystem</title>
+<title>FOB Ecosystem Hub | FullOnBaan</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+<script>
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          gold:     "#c9a84c",
+          "gold-dim": "#a07830",
+          "gold-bright": "#e8c96a",
+          bg:       "#0d0f14",
+          surface:  "#13161e",
+          "surface-hi": "#1a1e28",
+          "surface-highest": "#232736",
+          border:   "#2a2f3e",
+          "text-muted": "#7a8499",
+          "text-base": "#d4d8e8",
+        },
+        fontFamily: {
+          display: ["Cinzel", "serif"],
+          body: ["Inter", "sans-serif"],
+          mono: ["JetBrains Mono", "monospace"],
+        },
+      },
+    },
+  };
+</script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: #0f172a;
-    color: #e2e8f0;
-    min-height: 100vh;
-  }
+  body { background: #0d0f14; color: #d4d8e8; font-family: 'Inter', sans-serif; }
 
-  header {
-    text-align: center;
-    padding: 3.5rem 1rem 2rem;
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-    border-bottom: 1px solid #1e293b;
-  }
-  header h1 {
-    font-size: 2.6rem;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    background: linear-gradient(135deg, #38bdf8, #818cf8, #a78bfa);
+  .gold-text {
+    background: linear-gradient(135deg, #c9a84c 0%, #e8c96a 50%, #a07830 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    margin-bottom: 0.5rem;
+    background-clip: text;
   }
-  header p {
-    color: #94a3b8;
-    font-size: 1.1rem;
-    max-width: 540px;
-    margin: 0 auto;
-    line-height: 1.6;
-  }
-
-  main { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
-
-  .section-title {
-    font-size: 1.15rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-bottom: 1.25rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 2px solid #334155;
-  }
-  .section-title.ln  { color: #38bdf8; border-color: #38bdf8; }
-  .section-title.m3  { color: #a78bfa; border-color: #a78bfa; }
-  .section-title.co  { color: #34d399; border-color: #34d399; }
-
-  .section { margin-bottom: 2.5rem; }
-
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.25rem;
-  }
+  .gold-border { border-color: rgba(201,168,76,0.25); }
+  .gold-glow { box-shadow: 0 0 30px rgba(201,168,76,0.08); }
 
   .card {
-    background: #1e293b;
-    border: 1px solid #334155;
-    border-radius: 12px;
-    padding: 1.5rem;
-    text-decoration: none;
-    color: inherit;
-    display: flex;
-    align-items: flex-start;
-    gap: 1rem;
-    transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+    background: #13161e;
+    border: 1px solid rgba(42,47,62,0.8);
+    border-radius: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.2s;
   }
   .card:hover {
-    transform: translateY(-3px);
-    border-color: #475569;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    border-color: rgba(201,168,76,0.3);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 20px rgba(201,168,76,0.06);
+    transform: translateY(-2px);
   }
 
-  .icon {
-    flex-shrink: 0;
-    width: 46px; height: 46px;
+  .icon-box {
+    width: 48px; height: 48px;
     border-radius: 10px;
     display: flex; align-items: center; justify-content: center;
-    font-size: 1.35rem;
+    font-size: 1.4rem;
   }
-  .icon.ln { background: rgba(56,189,248,0.15); }
-  .icon.m3 { background: rgba(167,139,250,0.15); }
-  .icon.co { background: rgba(52,211,153,0.15); }
+  .icon-ln  { background: rgba(56,189,248,0.12); color: #38bdf8; }
+  .icon-m3  { background: rgba(167,139,250,0.12); color: #a78bfa; }
+  .icon-co  { background: rgba(201,168,76,0.12);  color: #c9a84c; }
 
-  .card-body h3 {
-    font-size: 1.05rem;
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 4px;
+    font-size: 0.7rem;
     font-weight: 600;
-    margin-bottom: 0.35rem;
-    color: #f1f5f9;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
   }
-  .card-body p {
-    font-size: 0.88rem;
-    color: #94a3b8;
-    line-height: 1.55;
+  .tag-ln  { background: rgba(56,189,248,0.1);  color: #38bdf8;  border: 1px solid rgba(56,189,248,0.2);  }
+  .tag-m3  { background: rgba(167,139,250,0.1); color: #a78bfa;  border: 1px solid rgba(167,139,250,0.2); }
+  .tag-co  { background: rgba(201,168,76,0.1);  color: #c9a84c;  border: 1px solid rgba(201,168,76,0.2);  }
+
+  .stat-bar {
+    height: 3px;
+    border-radius: 2px;
+    background: rgba(255,255,255,0.06);
+    overflow: hidden;
+  }
+  .stat-bar-fill {
+    height: 100%;
+    border-radius: 2px;
   }
 
-  footer {
-    text-align: center;
-    padding: 2rem 1rem;
-    color: #475569;
-    font-size: 0.85rem;
-    border-top: 1px solid #1e293b;
+  .link-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(42,47,62,0.5);
+    color: #7a8499;
+    text-decoration: none;
+    transition: color 0.2s;
+    cursor: pointer;
   }
-  footer a { color: #64748b; text-decoration: none; }
-  footer a:hover { color: #94a3b8; }
+  .link-row:last-child { border-bottom: none; }
+  .link-row:hover { color: #d4d8e8; }
+  .link-row .material-symbols-outlined { font-size: 1rem; transition: transform 0.2s; }
+  .link-row:hover .material-symbols-outlined { transform: translate(2px,-2px); }
 
-  @media (max-width: 640px) {
-    header h1 { font-size: 1.8rem; }
-    .grid { grid-template-columns: 1fr; }
+  nav a { text-decoration: none; }
+
+  @keyframes pulse-slow {
+    0%,100% { opacity: 0.6; } 50% { opacity: 1; }
+  }
+  .pulse-slow { animation: pulse-slow 3s ease-in-out infinite; }
+
+  @keyframes count-up {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .count-anim { animation: count-up 0.6s ease forwards; }
+
+  @media (max-width: 768px) {
+    .bento-grid { grid-template-columns: 1fr !important; }
+    .hero-grid  { grid-template-columns: 1fr !important; }
   }
 </style>
 </head>
-<body>
+<body class="min-h-screen">
 
-<header>
-  <h1>FOB Ecosystem</h1>
-  <p>Your complete hub for Infor ERP training, certifications, job resources, and more — powered by FullOnBaan.</p>
-</header>
+<!-- ── Top Nav ── -->
+<nav style="position:fixed;top:0;width:100%;z-index:50;background:rgba(13,15,20,0.85);backdrop-filter:blur(20px);border-bottom:1px solid rgba(42,47,62,0.6);">
+  <div style="max-width:1200px;margin:0 auto;padding:0 2rem;height:68px;display:flex;align-items:center;justify-content:space-between;">
+    <div style="display:flex;align-items:center;gap:2.5rem;">
+      <span style="font-family:'Cinzel',serif;font-size:1.25rem;font-weight:700;" class="gold-text">FullOnBaan</span>
+      <div style="display:flex;gap:1.5rem;font-size:0.875rem;" class="hidden-mobile">
+        <a href="https://fobrepo.vercel.app/" target="_blank" style="color:#7a8499;transition:color 0.2s;" onmouseover="this.style.color='#d4d8e8'" onmouseout="this.style.color='#7a8499'">Repository</a>
+        <a href="https://fobtraining.vercel.app/" target="_blank" style="color:#7a8499;transition:color 0.2s;" onmouseover="this.style.color='#d4d8e8'" onmouseout="this.style.color='#7a8499'">Training</a>
+        <a href="https://fobinterview.vercel.app/" target="_blank" style="color:#7a8499;transition:color 0.2s;" onmouseover="this.style.color='#d4d8e8'" onmouseout="this.style.color='#7a8499'">Interview Prep</a>
+        <a href="https://fobjobs.vercel.app/" target="_blank" style="color:#7a8499;transition:color 0.2s;" onmouseover="this.style.color='#d4d8e8'" onmouseout="this.style.color='#7a8499'">Jobs</a>
+      </div>
+    </div>
+    <a href="https://fobexams.vercel.app/" target="_blank" style="background:linear-gradient(135deg,#c9a84c,#a07830);color:#0d0f14;padding:8px 20px;border-radius:8px;font-size:0.85rem;font-weight:700;text-decoration:none;font-family:'Cinzel',serif;letter-spacing:0.5px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+      Get Certified
+    </a>
+  </div>
+</nav>
 
-<main>
+<main style="max-width:1200px;margin:0 auto;padding:104px 2rem 5rem;">
 
-  <!-- Infor LN -->
-  <div class="section">
-    <div class="section-title ln">Infor LN</div>
-    <div class="grid">
+  <!-- ── Hero ── -->
+  <section style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;margin-bottom:4rem;" class="hero-grid">
+    <div>
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:2px;color:#c9a84c;text-transform:uppercase;margin-bottom:1rem;">● INFOR ERP · KNOWLEDGE ECOSYSTEM</div>
+      <h1 style="font-family:'Cinzel',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:700;line-height:1.15;margin-bottom:1.25rem;">
+        The <span class="gold-text">FOB</span><br/>Ecosystem Hub
+      </h1>
+      <p style="color:#7a8499;font-size:1rem;line-height:1.7;max-width:440px;margin-bottom:2rem;">
+        Your complete hub for Infor LN & M3 training, certifications, interview prep, and career resources — built by practitioners, for practitioners.
+      </p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="https://fobrepo.vercel.app/" target="_blank" style="background:linear-gradient(135deg,#c9a84c,#a07830);color:#0d0f14;padding:12px 24px;border-radius:10px;font-weight:700;font-size:0.9rem;text-decoration:none;display:flex;align-items:center;gap:6px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+          <span class="material-symbols-outlined" style="font-size:1.1rem;">library_books</span>
+          Explore Repository
+        </a>
+        <a href="https://fobexams.vercel.app/" target="_blank" style="border:1px solid rgba(201,168,76,0.3);color:#d4d8e8;padding:12px 24px;border-radius:10px;font-weight:600;font-size:0.9rem;text-decoration:none;display:flex;align-items:center;gap:6px;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(201,168,76,0.6)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.3)'">
+          <span class="material-symbols-outlined" style="font-size:1.1rem;">workspace_premium</span>
+          Take a Mock Exam
+        </a>
+      </div>
+    </div>
 
-      <a class="card" href="https://fobrepo.vercel.app/" target="_blank" rel="noopener">
-        <div class="icon ln">📚</div>
-        <div class="card-body">
-          <h3>FOB Repository</h3>
-          <p>Centralized knowledge base with documentation, guides, and reference material for Infor LN modules and configurations.</p>
+    <!-- Stats Panel -->
+    <div class="card gold-glow" style="padding:2rem;">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:0.65rem;letter-spacing:2px;color:#c9a84c;text-transform:uppercase;margin-bottom:1.5rem;">Ecosystem Vitality</div>
+      <div style="display:flex;flex-direction:column;gap:1.25rem;">
+
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+            <span style="font-size:0.85rem;color:#7a8499;">Knowledge Threads</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:#38bdf8;">10,000+</span>
+          </div>
+          <div class="stat-bar"><div class="stat-bar-fill" style="width:95%;background:linear-gradient(90deg,#38bdf8,#0ea5e9);"></div></div>
         </div>
-      </a>
 
-      <a class="card" href="https://fobtraining.vercel.app/" target="_blank" rel="noopener">
-        <div class="icon ln">🎓</div>
-        <div class="card-body">
-          <h3>FOB Training</h3>
-          <p>Structured learning paths and training courses covering Infor LN functional and technical topics from beginner to advanced.</p>
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+            <span style="font-size:0.85rem;color:#7a8499;">Exam Questions</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:#a78bfa;">5,196+</span>
+          </div>
+          <div class="stat-bar"><div class="stat-bar-fill" style="width:78%;background:linear-gradient(90deg,#a78bfa,#7c3aed);"></div></div>
         </div>
-      </a>
 
-      <a class="card" href="https://fobinterview.vercel.app/" target="_blank" rel="noopener">
-        <div class="icon ln">💬</div>
-        <div class="card-body">
-          <h3>FOB Interview Prep</h3>
-          <p>Practice questions and scenario-based exercises to prepare for Infor LN consultant and developer interviews.</p>
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+            <span style="font-size:0.85rem;color:#7a8499;">SQL Query Library</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:#c9a84c;">68+ queries</span>
+          </div>
+          <div class="stat-bar"><div class="stat-bar-fill" style="width:62%;background:linear-gradient(90deg,#c9a84c,#a07830);"></div></div>
         </div>
-      </a>
 
-      <a class="card" href="https://fobjobs.vercel.app/" target="_blank" rel="noopener">
-        <div class="icon ln">💼</div>
-        <div class="card-body">
-          <h3>FOB Jobs</h3>
-          <p>Curated job board featuring Infor LN openings — find consultant, developer, and analyst roles across the globe.</p>
+        <div>
+          <div style="display:flex;justify-content:space-between;margin-bottom:6px;">
+            <span style="font-size:0.85rem;color:#7a8499;">LN Certification Tracks</span>
+            <span style="font-family:'JetBrains Mono',monospace;font-size:0.85rem;color:#34d399;">7 tracks</span>
+          </div>
+          <div class="stat-bar"><div class="stat-bar-fill" style="width:70%;background:linear-gradient(90deg,#34d399,#059669);"></div></div>
         </div>
-      </a>
 
-      <a class="card" href="https://fobexams.vercel.app/" target="_blank" rel="noopener">
-        <div class="icon ln">📝</div>
-        <div class="card-body">
-          <h3>FOB Exams</h3>
-          <p>Mock exams and quizzes aligned with Infor LN certification topics to test your knowledge and track your readiness.</p>
-        </div>
-      </a>
+      </div>
+      <div style="margin-top:1.5rem;padding-top:1.25rem;border-top:1px solid rgba(42,47,62,0.6);display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:0.78rem;color:#7a8499;">10+ years · Bangalore, India</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:0.7rem;color:#c9a84c;letter-spacing:1px;">#1 INFOR LN TRAINING</span>
+      </div>
+    </div>
+  </section>
 
-      <a class="card" href="https://fobplaybook.vercel.app/" target="_blank" rel="noopener">
-        <div class="icon ln">📖</div>
-        <div class="card-body">
-          <h3>FOB Playbook</h3>
-          <p>Step-by-step implementation playbooks, best practices, and proven strategies for Infor LN project delivery.</p>
-        </div>
-      </a>
-
+  <!-- ── Section Header ── -->
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:1rem;border-bottom:1px solid rgba(42,47,62,0.6);padding-bottom:1.5rem;margin-bottom:2rem;">
+    <div>
+      <h2 style="font-family:'Cinzel',serif;font-size:1.6rem;font-weight:700;margin-bottom:0.35rem;">The Ecosystem Core</h2>
+      <p style="color:#7a8499;font-size:0.9rem;">Six platforms. One community. Infor LN.</p>
+    </div>
+    <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
+      <span class="tag tag-ln">Infor LN</span>
+      <span class="tag tag-m3">Infor M3</span>
     </div>
   </div>
 
-  <!-- Infor M3 -->
-  <div class="section">
-    <div class="section-title m3">Infor M3</div>
-    <div class="grid">
+  <!-- ── Bento Grid ── -->
+  <div style="display:grid;grid-template-columns:repeat(12,1fr);gap:1.25rem;" class="bento-grid">
 
-      <a class="card" href="https://fobm3training.vercel.app/" target="_blank" rel="noopener">
-        <div class="icon m3">🎓</div>
-        <div class="card-body">
-          <h3>FOB M3 Training</h3>
-          <p>Dedicated training platform for Infor M3 — covering functional modules, workflows, and hands-on exercises.</p>
+    <!-- FOB Repository — wide feature card -->
+    <a href="https://fobrepo.vercel.app/" target="_blank" rel="noopener" class="card" style="grid-column:span 8;padding:2.5rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:space-between;min-height:220px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-20px;right:-20px;width:180px;height:180px;background:radial-gradient(circle,rgba(56,189,248,0.08),transparent 70%);border-radius:50%;pointer-events:none;"></div>
+      <div>
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1rem;">
+          <div class="icon-box icon-ln"><span class="material-symbols-outlined">library_books</span></div>
+          <div>
+            <span class="tag tag-ln" style="margin-bottom:4px;display:inline-block;">Repository</span>
+            <h3 style="font-size:1.5rem;font-weight:700;color:#f1f5f9;">FOB Repository</h3>
+          </div>
         </div>
-      </a>
+        <p style="color:#7a8499;font-size:0.9rem;line-height:1.65;max-width:480px;">Centralized knowledge base with 10,000+ threads, documentation, guides, and reference material for every Infor LN module — from Finance to Manufacturing to DAL scripting.</p>
+      </div>
+      <div style="display:flex;align-items:center;gap:1rem;margin-top:1.5rem;flex-wrap:wrap;">
+        <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#38bdf8;background:rgba(56,189,248,0.08);padding:4px 10px;border-radius:4px;border:1px solid rgba(56,189,248,0.15);">10,000+ threads</span>
+        <span style="font-family:'JetBrains Mono',monospace;font-size:0.72rem;color:#38bdf8;background:rgba(56,189,248,0.08);padding:4px 10px;border-radius:4px;border:1px solid rgba(56,189,248,0.15);">9 modules</span>
+        <span style="color:#38bdf8;font-size:0.85rem;font-weight:600;display:flex;align-items:center;gap:4px;margin-left:auto;">fobrepo.vercel.app <span class="material-symbols-outlined" style="font-size:1rem;">north_east</span></span>
+      </div>
+    </a>
 
-      <a class="card" href="https://fobm3exams.vercel.app/" target="_blank" rel="noopener">
-        <div class="icon m3">📝</div>
-        <div class="card-body">
-          <h3>FOB M3 Exams</h3>
-          <p>Practice tests and certification prep materials specifically designed for Infor M3 professionals.</p>
+    <!-- FOB Exams — tall card -->
+    <a href="https://fobexams.vercel.app/" target="_blank" rel="noopener" class="card" style="grid-column:span 4;padding:2rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;justify-content:space-between;position:relative;overflow:hidden;">
+      <div style="position:absolute;bottom:-30px;right:-30px;width:140px;height:140px;background:radial-gradient(circle,rgba(56,189,248,0.1),transparent 70%);border-radius:50%;pointer-events:none;"></div>
+      <div>
+        <span class="tag tag-ln" style="margin-bottom:0.75rem;display:inline-block;">Certification</span>
+        <div class="icon-box icon-ln" style="margin-bottom:0.75rem;"><span class="material-symbols-outlined">workspace_premium</span></div>
+        <h3 style="font-size:1.2rem;font-weight:700;color:#f1f5f9;margin-bottom:0.5rem;">FOB Exams</h3>
+        <p style="color:#7a8499;font-size:0.85rem;line-height:1.55;">5,196+ questions across 7 Infor LN certification tracks. Mock exams, instant scoring, and email certificates.</p>
+      </div>
+      <div style="margin-top:1.25rem;padding-top:1rem;border-top:1px solid rgba(42,47,62,0.5);">
+        <span style="color:#38bdf8;font-size:0.82rem;font-weight:600;display:flex;align-items:center;gap:4px;">fobexams.vercel.app <span class="material-symbols-outlined" style="font-size:0.9rem;">north_east</span></span>
+      </div>
+    </a>
+
+    <!-- FOB Training -->
+    <a href="https://fobtraining.vercel.app/" target="_blank" rel="noopener" class="card" style="grid-column:span 4;padding:2rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:0.75rem;">
+      <span class="tag tag-ln">Learning</span>
+      <div class="icon-box icon-ln"><span class="material-symbols-outlined">school</span></div>
+      <h3 style="font-size:1.1rem;font-weight:700;color:#f1f5f9;">FOB Training</h3>
+      <p style="color:#7a8499;font-size:0.85rem;line-height:1.55;flex:1;">Structured learning paths for Infor LN — functional and technical topics from beginner to advanced. Ebooks, videos, and live sessions.</p>
+      <span style="color:#38bdf8;font-size:0.82rem;font-weight:600;display:flex;align-items:center;gap:4px;margin-top:auto;">fobtraining.vercel.app <span class="material-symbols-outlined" style="font-size:0.9rem;">north_east</span></span>
+    </a>
+
+    <!-- FOB Interview -->
+    <a href="https://fobinterview.vercel.app/" target="_blank" rel="noopener" class="card" style="grid-column:span 4;padding:2rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:0.75rem;">
+      <span class="tag tag-ln">Interview Prep</span>
+      <div class="icon-box icon-ln"><span class="material-symbols-outlined">forum</span></div>
+      <h3 style="font-size:1.1rem;font-weight:700;color:#f1f5f9;">FOB Interview Prep</h3>
+      <p style="color:#7a8499;font-size:0.85rem;line-height:1.55;flex:1;">Scenario-based Q&amp;A and practice exercises designed for Infor LN consultant and developer interviews.</p>
+      <span style="color:#38bdf8;font-size:0.82rem;font-weight:600;display:flex;align-items:center;gap:4px;margin-top:auto;">fobinterview.vercel.app <span class="material-symbols-outlined" style="font-size:0.9rem;">north_east</span></span>
+    </a>
+
+    <!-- FOB Jobs -->
+    <a href="https://fobjobs.vercel.app/" target="_blank" rel="noopener" class="card" style="grid-column:span 4;padding:2rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:0.75rem;">
+      <span class="tag tag-ln">Careers</span>
+      <div class="icon-box icon-ln"><span class="material-symbols-outlined">work</span></div>
+      <h3 style="font-size:1.1rem;font-weight:700;color:#f1f5f9;">FOB Jobs</h3>
+      <p style="color:#7a8499;font-size:0.85rem;line-height:1.55;flex:1;">Curated Infor LN job board — consultant, developer, and analyst roles from global ERP employers.</p>
+      <span style="color:#38bdf8;font-size:0.82rem;font-weight:600;display:flex;align-items:center;gap:4px;margin-top:auto;">fobjobs.vercel.app <span class="material-symbols-outlined" style="font-size:0.9rem;">north_east</span></span>
+    </a>
+
+    <!-- Infor M3 section -->
+    <div class="card" style="grid-column:span 8;padding:2rem;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;background:radial-gradient(circle,rgba(167,139,250,0.07),transparent 70%);border-radius:50%;pointer-events:none;"></div>
+      <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;margin-bottom:1.5rem;">
+        <div style="display:flex;align-items:center;gap:1rem;">
+          <div class="icon-box icon-m3"><span class="material-symbols-outlined">layers</span></div>
+          <div>
+            <span class="tag tag-m3" style="margin-bottom:4px;display:inline-block;">Infor M3</span>
+            <h3 style="font-size:1.4rem;font-weight:700;color:#f1f5f9;">M3 Training &amp; Exams</h3>
+          </div>
         </div>
-      </a>
-
+        <div style="display:none;" class="lg:flex gap-2 flex-wrap">
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#7a8499;background:#1a1e28;padding:3px 8px;border-radius:4px;border:1px solid rgba(42,47,62,0.8);">CloudSuite</span>
+          <span style="font-family:'JetBrains Mono',monospace;font-size:0.68rem;color:#7a8499;background:#1a1e28;padding:3px 8px;border-radius:4px;border:1px solid rgba(42,47,62,0.8);">Multi-tenant</span>
+        </div>
+      </div>
+      <p style="color:#7a8499;font-size:0.9rem;line-height:1.65;max-width:500px;margin-bottom:1.5rem;">Dedicated platforms covering Infor M3 functional workflows, technical modules, and certification readiness — for professionals transitioning or specializing in M3.</p>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <a href="https://fobm3training.vercel.app/" target="_blank" rel="noopener" class="link-row" style="display:flex;align-items:center;gap:8px;color:#a78bfa;font-size:0.85rem;font-weight:600;text-decoration:none;padding:0;border:none;" onmouseover="this.style.color='#d4d8e8'" onmouseout="this.style.color='#a78bfa'">
+          <span class="material-symbols-outlined" style="font-size:1rem;">school</span> M3 Training
+          <span class="material-symbols-outlined" style="font-size:0.9rem;">north_east</span>
+        </a>
+        <a href="https://fobm3exams.vercel.app/" target="_blank" rel="noopener" class="link-row" style="display:flex;align-items:center;gap:8px;color:#a78bfa;font-size:0.85rem;font-weight:600;text-decoration:none;padding:0;border:none;" onmouseover="this.style.color='#d4d8e8'" onmouseout="this.style.color='#a78bfa'">
+          <span class="material-symbols-outlined" style="font-size:1rem;">quiz</span> M3 Exams
+          <span class="material-symbols-outlined" style="font-size:0.9rem;">north_east</span>
+        </a>
+      </div>
     </div>
+
+    <!-- FOB Playbook -->
+    <a href="https://fobplaybook.vercel.app/" target="_blank" rel="noopener" class="card" style="grid-column:span 4;padding:2rem;text-decoration:none;color:inherit;display:flex;flex-direction:column;gap:0.75rem;">
+      <span class="tag tag-ln">Playbook</span>
+      <div class="icon-box icon-ln"><span class="material-symbols-outlined">auto_stories</span></div>
+      <h3 style="font-size:1.1rem;font-weight:700;color:#f1f5f9;">FOB Playbook</h3>
+      <p style="color:#7a8499;font-size:0.85rem;line-height:1.55;flex:1;">Step-by-step implementation playbooks, best practices, and proven strategies for Infor LN project delivery.</p>
+      <span style="color:#38bdf8;font-size:0.82rem;font-weight:600;display:flex;align-items:center;gap:4px;margin-top:auto;">fobplaybook.vercel.app <span class="material-symbols-outlined" style="font-size:0.9rem;">north_east</span></span>
+    </a>
+
   </div>
 
-  <!-- Company -->
-  <div class="section">
-    <div class="section-title co">Company</div>
-    <div class="grid">
+  <!-- ── Company + Contact ── -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-top:1.25rem;" class="hero-grid">
 
-      <a class="card" href="https://www.fullonbaan.com/" target="_blank" rel="noopener">
-        <div class="icon co">🌐</div>
-        <div class="card-body">
-          <h3>FullOnBaan.com</h3>
-          <p>The official FullOnBaan website — learn about our mission, services, and the team behind the FOB Ecosystem.</p>
+    <!-- FullOnBaan.com card -->
+    <a href="https://www.fullonbaan.com/" target="_blank" rel="noopener" class="card" style="padding:2rem;text-decoration:none;color:inherit;display:flex;align-items:flex-start;gap:1.25rem;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,0.04),transparent);pointer-events:none;"></div>
+      <div class="icon-box icon-co" style="flex-shrink:0;"><span class="material-symbols-outlined">public</span></div>
+      <div>
+        <span class="tag tag-co" style="margin-bottom:0.5rem;display:inline-block;">Company</span>
+        <h3 style="font-size:1.2rem;font-weight:700;color:#f1f5f9;margin-bottom:0.5rem;">FullOnBaan.com</h3>
+        <p style="color:#7a8499;font-size:0.875rem;line-height:1.6;">The official FullOnBaan website — 10+ years of Infor LN training excellence, serving 1000+ professionals globally. Bangalore, India.</p>
+        <span style="color:#c9a84c;font-size:0.82rem;font-weight:600;display:flex;align-items:center;gap:4px;margin-top:1rem;">www.fullonbaan.com <span class="material-symbols-outlined" style="font-size:0.9rem;">north_east</span></span>
+      </div>
+    </a>
+
+    <!-- Contact card — plain mailto, no Cloudflare obfuscation -->
+    <div class="card" style="padding:2rem;position:relative;overflow:hidden;">
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,168,76,0.03),transparent);pointer-events:none;"></div>
+      <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
+        <div class="icon-box icon-co"><span class="material-symbols-outlined">contact_support</span></div>
+        <h3 style="font-size:1.1rem;font-weight:700;color:#f1f5f9;">Get in Touch</h3>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:0.75rem;">
+        <a href="mailto:fullonbaan@gmail.com?subject=FOB%20Ecosystem%20Enquiry&body=Hi%20FullOnBaan%20Team%2C%0A%0AI%20am%20interested%20in%20learning%20more%20about%20your%20Infor%20LN%20services.%0A%0AName%3A%0A" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#d4d8e8;font-size:0.875rem;transition:color 0.2s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='#d4d8e8'">
+          <span class="material-symbols-outlined" style="font-size:1.1rem;color:#c9a84c;">mail</span>
+          fullonbaan@gmail.com
+        </a>
+        <a href="tel:+916360593122" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#d4d8e8;font-size:0.875rem;transition:color 0.2s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='#d4d8e8'">
+          <span class="material-symbols-outlined" style="font-size:1.1rem;color:#c9a84c;">phone</span>
+          +91 63605 93122
+        </a>
+        <div style="display:flex;align-items:center;gap:10px;color:#7a8499;font-size:0.875rem;">
+          <span class="material-symbols-outlined" style="font-size:1.1rem;color:#c9a84c;">location_on</span>
+          Bangalore, India
         </div>
+      </div>
+      <a href="mailto:fullonbaan@gmail.com?subject=FOB%20Ecosystem%20Enquiry&body=Hi%20FullOnBaan%20Team%2C%0A%0AI%20am%20interested%20in%20learning%20more%20about%20your%20Infor%20LN%20services.%0A%0AName%3A%0A" style="display:inline-flex;align-items:center;gap:6px;margin-top:1.25rem;background:linear-gradient(135deg,rgba(201,168,76,0.15),rgba(201,168,76,0.05));border:1px solid rgba(201,168,76,0.25);color:#c9a84c;padding:8px 18px;border-radius:8px;font-size:0.82rem;font-weight:600;text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(201,168,76,0.5)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.25)'">
+        <span class="material-symbols-outlined" style="font-size:0.95rem;">send</span>
+        Send Enquiry
       </a>
-
     </div>
+
   </div>
 
 </main>
 
-<footer>
-  &copy; 2026 <a href="https://www.fullonbaan.com/" target="_blank" rel="noopener">FullOnBaan</a>. All rights reserved.
+<!-- ── Footer ── -->
+<footer style="background:#0a0c10;border-top:1px solid rgba(42,47,62,0.6);padding:2rem;margin-top:2rem;">
+  <div style="max-width:1200px;margin:0 auto;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:1rem;">
+    <div>
+      <span style="font-family:'Cinzel',serif;font-size:1rem;font-weight:700;" class="gold-text">FullOnBaan</span>
+      <p style="font-size:0.78rem;color:#475569;margin-top:4px;">© 2026 <a href="https://www.fullonbaan.com/" target="_blank" rel="noopener" style="color:#64748b;text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#64748b'">FullOnBaan</a>. All rights reserved. · Bangalore, India</p>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:1.5rem;font-size:0.82rem;">
+      <a href="https://fobrepo.vercel.app/" target="_blank" style="color:#475569;text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#475569'">Repository</a>
+      <a href="https://fobtraining.vercel.app/" target="_blank" style="color:#475569;text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#475569'">Training</a>
+      <a href="https://fobexams.vercel.app/" target="_blank" style="color:#475569;text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#475569'">Exams</a>
+      <a href="https://fobjobs.vercel.app/" target="_blank" style="color:#475569;text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#475569'">Jobs</a>
+      <a href="https://www.fullonbaan.com/" target="_blank" style="color:#475569;text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#475569'">About</a>
+      <a href="mailto:fullonbaan@gmail.com?subject=FOB%20Ecosystem%20Enquiry" style="color:#475569;text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#475569'">Contact</a>
+    </div>
+  </div>
 </footer>
 
 </body>
