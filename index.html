@@ -35,7 +35,57 @@
 </script>
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  /* ── Theme transition ── */
+  body, body * { transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease; }
+
+  /* ── Dark mode (default) ── */
   body { background: #0d0f14; color: #d4d8e8; font-family: 'Inter', sans-serif; }
+
+  /* ── Light mode ── */
+  body.light-mode { background: #f4f5f8; color: #1a1d28; }
+  body.light-mode nav { background: rgba(255,255,255,0.9) !important; border-bottom-color: rgba(200,205,220,0.7) !important; }
+  body.light-mode .card { background: #ffffff !important; border-color: rgba(200,205,220,0.7) !important; }
+  body.light-mode .card:hover { border-color: rgba(201,168,76,0.4) !important; box-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 0 20px rgba(201,168,76,0.08) !important; }
+  body.light-mode .stat-bar { background: rgba(0,0,0,0.08) !important; }
+  body.light-mode .link-row { border-bottom-color: rgba(200,205,220,0.5) !important; color: #5a6377 !important; }
+  body.light-mode .link-row:hover { color: #1a1d28 !important; }
+  body.light-mode footer { background: #e8eaf0 !important; border-top-color: rgba(200,205,220,0.7) !important; }
+  body.light-mode footer a { color: #8a92a6 !important; }
+  body.light-mode footer a:hover { color: #4a5568 !important; }
+  /* Fix inline-style colours in light mode */
+  body.light-mode [style*="color:#7a8499"] { color: #5a6377 !important; }
+  body.light-mode [style*="color:#d4d8e8"] { color: #1a1d28 !important; }
+  body.light-mode [style*="color:#f1f5f9"] { color: #111827 !important; }
+  body.light-mode [style*="background:#13161e"] { background: #ffffff !important; }
+  body.light-mode [style*="background:#1a1e28"] { background: #eef0f5 !important; }
+  body.light-mode [style*="background:#0a0c10"] { background: #e8eaf0 !important; }
+  body.light-mode [style*="color:#475569"] { color: #64748b !important; }
+  body.light-mode [style*="color:#64748b"] { color: #475569 !important; }
+  body.light-mode .icon-ln  { background: rgba(56,189,248,0.12); }
+  body.light-mode .icon-m3  { background: rgba(167,139,250,0.12); }
+  body.light-mode .icon-co  { background: rgba(201,168,76,0.12); }
+
+  /* ── Theme Toggle Button ── */
+  #theme-toggle {
+    display: flex; align-items: center; gap: 6px;
+    background: rgba(201,168,76,0.08);
+    border: 1px solid rgba(201,168,76,0.22);
+    border-radius: 8px;
+    padding: 7px 14px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #c9a84c;
+    letter-spacing: 0.3px;
+    transition: background 0.2s, border-color 0.2s, transform 0.15s !important;
+    white-space: nowrap;
+  }
+  #theme-toggle:hover { background: rgba(201,168,76,0.15); border-color: rgba(201,168,76,0.4); transform: translateY(-1px); }
+  #theme-toggle .theme-icon { font-size: 1rem; transition: transform 0.4s ease !important; }
+  #theme-toggle:active .theme-icon { transform: rotate(20deg); }
+  body.light-mode #theme-toggle { background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.3); }
 
   .gold-text {
     background: linear-gradient(135deg, #c9a84c 0%, #e8c96a 50%, #a07830 100%);
@@ -126,6 +176,67 @@
     .bento-grid { grid-template-columns: 1fr !important; }
     .hero-grid  { grid-template-columns: 1fr !important; }
   }
+
+  /* ── Light Mode ── */
+  body.light-mode {
+    background: #f5f4ef !important;
+    color: #1a1c24 !important;
+  }
+  body.light-mode nav {
+    background: rgba(245,244,239,0.9) !important;
+    border-bottom-color: rgba(201,168,76,0.2) !important;
+  }
+  body.light-mode .card {
+    background: #ffffff !important;
+    border-color: rgba(201,168,76,0.18) !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06) !important;
+  }
+  body.light-mode .card:hover {
+    border-color: rgba(201,168,76,0.45) !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1), 0 0 20px rgba(201,168,76,0.1) !important;
+  }
+  body.light-mode .stat-bar {
+    background: rgba(0,0,0,0.08) !important;
+  }
+  body.light-mode footer {
+    background: #eceae3 !important;
+    border-top-color: rgba(201,168,76,0.2) !important;
+  }
+  body.light-mode .link-row {
+    border-bottom-color: rgba(201,168,76,0.15) !important;
+    color: #5a6275 !important;
+  }
+  body.light-mode .link-row:hover { color: #1a1c24 !important; }
+  body.light-mode .tag-ln  { background: rgba(56,189,248,0.08) !important; }
+  body.light-mode .tag-m3  { background: rgba(167,139,250,0.08) !important; }
+  body.light-mode .tag-co  { background: rgba(201,168,76,0.08) !important; }
+  body.light-mode .icon-ln { background: rgba(56,189,248,0.1) !important; }
+  body.light-mode .icon-m3 { background: rgba(167,139,250,0.1) !important; }
+  body.light-mode .icon-co { background: rgba(201,168,76,0.1) !important; }
+
+  /* ── Theme Toggle Button ── */
+  #theme-toggle {
+    width: 44px; height: 26px;
+    border-radius: 13px;
+    border: 1.5px solid rgba(201,168,76,0.35);
+    background: rgba(201,168,76,0.08);
+    cursor: pointer;
+    position: relative;
+    transition: background 0.3s, border-color 0.3s;
+    flex-shrink: 0;
+    display: flex; align-items: center; padding: 3px;
+  }
+  #theme-toggle:hover { border-color: rgba(201,168,76,0.6); }
+  #theme-toggle .toggle-thumb {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #c9a84c, #a07830);
+    transition: transform 0.3s cubic-bezier(.34,1.56,.64,1);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; line-height: 1;
+  }
+  body.light-mode #theme-toggle .toggle-thumb { transform: translateX(18px); }
+  body.light-mode #theme-toggle { background: rgba(201,168,76,0.15); }
 </style>
 </head>
 <body class="min-h-screen">
@@ -142,9 +253,15 @@
         <a href="https://fobjobs.vercel.app/" target="_blank" style="color:#7a8499;transition:color 0.2s;" onmouseover="this.style.color='#d4d8e8'" onmouseout="this.style.color='#7a8499'">Jobs</a>
       </div>
     </div>
-    <a href="https://fobexams.vercel.app/" target="_blank" style="background:linear-gradient(135deg,#c9a84c,#a07830);color:#0d0f14;padding:8px 20px;border-radius:8px;font-size:0.85rem;font-weight:700;text-decoration:none;font-family:'Cinzel',serif;letter-spacing:0.5px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-      Get Certified
-    </a>
+    <div style="display:flex;align-items:center;gap:0.75rem;">
+      <!-- Dark / Light Mode Toggle -->
+      <button id="theme-toggle" aria-label="Toggle dark/light mode" title="Toggle light / dark mode">
+        <span class="toggle-thumb" id="toggle-thumb">🌙</span>
+      </button>
+      <a href="https://fobexams.vercel.app/" target="_blank" style="background:linear-gradient(135deg,#c9a84c,#a07830);color:#0d0f14;padding:8px 20px;border-radius:8px;font-size:0.85rem;font-weight:700;text-decoration:none;font-family:'Cinzel',serif;letter-spacing:0.5px;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+        Get Certified
+      </a>
+    </div>
   </div>
 </nav>
 
@@ -356,9 +473,9 @@
         <h3 style="font-size:1.1rem;font-weight:700;color:#f1f5f9;">Get in Touch</h3>
       </div>
       <div style="display:flex;flex-direction:column;gap:0.75rem;">
-        <a href="mailto:fullonbaan@gmail.com?subject=FOB%20Ecosystem%20Enquiry&body=Hi%20FullOnBaan%20Team%2C%0A%0AI%20am%20interested%20in%20learning%20more%20about%20your%20Infor%20LN%20services.%0A%0AName%3A%0A" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#d4d8e8;font-size:0.875rem;transition:color 0.2s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='#d4d8e8'">
+        <a href="/cdn-cgi/l/email-protection#4721322b2b28292526262907202a262e2b6924282a783432252d2224337a010805627577022428343e3433222a627577022936322e353e612528233e7a0f2e62757701322b2b0829052626296275771322262a6275046277066277060e627577262a6275772e2933223522343322236275772e296275772b222635292e29206275772a28352262757726252832336275773e2832356275770e292128356275770b09627577342235312e2422346962770662770609262a22627406627706" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#d4d8e8;font-size:0.875rem;transition:color 0.2s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='#d4d8e8'">
           <span class="material-symbols-outlined" style="font-size:1.1rem;color:#c9a84c;">mail</span>
-          fullonbaan@gmail.com
+          <span class="__cf_email__" data-cfemail="accad9c0c0c3c2cecdcdc2eccbc1cdc5c082cfc3c1">[email&#160;protected]</span>
         </a>
         <a href="tel:+916360593122" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#d4d8e8;font-size:0.875rem;transition:color 0.2s;" onmouseover="this.style.color='#c9a84c'" onmouseout="this.style.color='#d4d8e8'">
           <span class="material-symbols-outlined" style="font-size:1.1rem;color:#c9a84c;">phone</span>
@@ -369,7 +486,7 @@
           Bangalore, India
         </div>
       </div>
-      <a href="mailto:fullonbaan@gmail.com?subject=FOB%20Ecosystem%20Enquiry&body=Hi%20FullOnBaan%20Team%2C%0A%0AI%20am%20interested%20in%20learning%20more%20about%20your%20Infor%20LN%20services.%0A%0AName%3A%0A" style="display:inline-flex;align-items:center;gap:6px;margin-top:1.25rem;background:linear-gradient(135deg,rgba(201,168,76,0.15),rgba(201,168,76,0.05));border:1px solid rgba(201,168,76,0.25);color:#c9a84c;padding:8px 18px;border-radius:8px;font-size:0.82rem;font-weight:600;text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(201,168,76,0.5)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.25)'">
+      <a href="/cdn-cgi/l/email-protection#bed8cbd2d2d1d0dcdfdfd0fed9d3dfd7d290ddd1d381cdcbdcd4dbddca83f8f1fc9b8c8efbddd1cdc7cdcadbd39b8c8efbd0cfcbd7ccc798dcd1dac783f6d79b8c8ef8cbd2d2f1d0fcdfdfd09b8c8eeadbdfd39b8cfd9b8eff9b8efff79b8c8edfd39b8c8ed7d0cadbccdbcdcadbda9b8c8ed7d09b8c8ed2dbdfccd0d7d0d99b8c8ed3d1ccdb9b8c8edfdcd1cbca9b8c8ec7d1cbcc9b8c8ef7d0d8d1cc9b8c8ef2f09b8c8ecddbccc8d7dddbcd909b8eff9b8efff0dfd3db9b8dff9b8eff" style="display:inline-flex;align-items:center;gap:6px;margin-top:1.25rem;background:linear-gradient(135deg,rgba(201,168,76,0.15),rgba(201,168,76,0.05));border:1px solid rgba(201,168,76,0.25);color:#c9a84c;padding:8px 18px;border-radius:8px;font-size:0.82rem;font-weight:600;text-decoration:none;transition:border-color 0.2s;" onmouseover="this.style.borderColor='rgba(201,168,76,0.5)'" onmouseout="this.style.borderColor='rgba(201,168,76,0.25)'">
         <span class="material-symbols-outlined" style="font-size:0.95rem;">send</span>
         Send Enquiry
       </a>
@@ -391,11 +508,61 @@
       <a href="https://fobtraining.vercel.app/" target="_blank" style="color:#475569;text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#475569'">Training</a>
       <a href="https://fobexams.vercel.app/" target="_blank" style="color:#475569;text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#475569'">Exams</a>
       <a href="https://fobjobs.vercel.app/" target="_blank" style="color:#475569;text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#475569'">Jobs</a>
-      <a href="https://www.fullonbaan.com/" target="_blank" style="color:#475569;text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#475569'">About</a>
-      <a href="mailto:fullonbaan@gmail.com?subject=FOB%20Ecosystem%20Enquiry" style="color:#475569;text-decoration:none;" onmouseover="this.style.color='#94a3b8'" onmouseout="this.style.color='#475569'">Contact</a>
     </div>
   </div>
 </footer>
 
+<script>
+  const btn = document.getElementById('theme-toggle');
+  const thumb = document.getElementById('toggle-thumb');
+  const body = document.body;
+
+  // Restore preference
+  if (localStorage.getItem('fob-theme') === 'light') {
+    body.classList.add('light-mode');
+    thumb.textContent = '☀️';
+  }
+
+  btn.addEventListener('click', () => {
+    const isLight = body.classList.toggle('light-mode');
+    thumb.textContent = isLight ? '☀️' : '🌙';
+    localStorage.setItem('fob-theme', isLight ? 'light' : 'dark');
+  });
+</script>
+</body>
+</html>
+'" onmouseout="this.style.color='#475569'">Jobs</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function() {
+    var btn   = document.getElementById('theme-toggle');
+    var icon  = document.getElementById('theme-icon');
+    var label = document.getElementById('theme-label');
+    var saved = localStorage.getItem('fob-theme');
+
+    function applyTheme(mode) {
+      if (mode === 'light') {
+        document.body.classList.add('light-mode');
+        icon.textContent  = 'light_mode';
+        label.textContent = 'Dark';
+        localStorage.setItem('fob-theme', 'light');
+      } else {
+        document.body.classList.remove('light-mode');
+        icon.textContent  = 'dark_mode';
+        label.textContent = 'Light';
+        localStorage.setItem('fob-theme', 'dark');
+      }
+    }
+
+    applyTheme(saved === 'light' ? 'light' : 'dark');
+
+    btn.addEventListener('click', function() {
+      applyTheme(document.body.classList.contains('light-mode') ? 'dark' : 'light');
+    });
+  })();
+</script>
 </body>
 </html>
