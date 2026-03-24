@@ -121,20 +121,21 @@
 
 <!-- ═══════════ TOP NAV BAR ═══════════ -->
 <header class="sticky top-0 z-50 shadow-[0_20px_40px_rgba(0,0,0,0.4)]" style="background:rgba(13,15,20,0.88);backdrop-filter:blur(20px);">
-  <div class="flex justify-between items-center w-full px-8 py-4 max-w-[1440px] mx-auto">
-    <!-- Left: Logo + Nav Links -->
-    <div class="flex items-center gap-8">
-      <span class="font-display text-xl tracking-widest uppercase gold-text font-bold">FullOnBaan</span>
-      <nav class="hidden md:flex gap-6 text-sm">
-        <a class="text-gold border-b-2 border-gold pb-1 font-bold" href="https://fobrepo.vercel.app/" target="_blank">Repository</a>
-        <a class="text-text-base opacity-70 hover:text-gold transition-colors duration-300" href="https://fobexams.vercel.app/" target="_blank">Mock Exams</a>
-        <a class="text-text-base opacity-70 hover:text-gold transition-colors duration-300" href="https://fobtraining.vercel.app/" target="_blank">Training</a>
-        <a class="text-text-base opacity-70 hover:text-gold transition-colors duration-300" href="https://fobjobs.vercel.app/" target="_blank">Jobs</a>
-        <a class="text-text-base opacity-70 hover:text-gold transition-colors duration-300" href="https://fob-ln-training.vercel.app/" target="_blank">LN Training</a>
-      </nav>
-    </div>
+  <div class="grid items-center w-full px-8 py-4" style="grid-template-columns: auto 1fr auto;">
+    <!-- Left: Logo -->
+    <span class="font-display text-lg tracking-widest uppercase gold-text font-bold whitespace-nowrap">FullOnBaan</span>
+    <!-- Center: Nav Links -->
+    <nav class="hidden lg:flex gap-4 text-[13px] whitespace-nowrap justify-center">
+      <a class="text-gold border-b-2 border-gold pb-1 font-bold" href="https://fobrepo.vercel.app/" target="_blank">LN Repository</a>
+      <a class="text-text-base opacity-70 hover:text-gold transition-colors duration-300" href="https://fobexams.vercel.app/" target="_blank">LN Certifications</a>
+      <a class="text-text-base opacity-70 hover:text-gold transition-colors duration-300" href="https://fobtraining.vercel.app/" target="_blank">LN Ebooks & Videos</a>
+      <a class="text-text-base opacity-70 hover:text-gold transition-colors duration-300" href="https://fobjobs.vercel.app/" target="_blank">LN Jobs</a>
+      <a class="text-text-base opacity-70 hover:text-gold transition-colors duration-300" href="https://fob-ln-training.vercel.app/" target="_blank">LN Training</a>
+      <a class="text-text-base opacity-70 hover:text-gold transition-colors duration-300" href="https://fob-services.vercel.app/" target="_blank">LN Services</a>
+      <a class="text-text-base opacity-70 hover:text-gold transition-colors duration-300" href="https://fobm3exams.vercel.app/" target="_blank">M3 Certifications</a>
+    </nav>
     <!-- Right: Search + Icons + Toggle + Avatar -->
-    <div class="flex items-center gap-4">
+    <div class="flex items-center gap-4 justify-end">
       <div class="relative hidden lg:block">
         <input class="bg-surface-highest border-none text-sm px-4 py-2 w-64 rounded-md focus:ring-1 focus:ring-gold/40 transition-all text-text-base placeholder-text-muted" placeholder="Search ecosystem..." type="text"/>
         <span class="material-symbols-outlined absolute right-3 top-2 text-text-muted text-sm">search</span>
@@ -143,10 +144,6 @@
         <span class="toggle-thumb" id="toggle-thumb">🌙</span>
       </button>
       <a href="https://www.youtube.com/channel/UCYT7snIHzheVwSx4M7DFuVA" target="_blank" class="material-symbols-outlined text-text-base opacity-70 hover:text-gold transition-all text-xl" title="YouTube">subscriptions</a>
-      <a href="mailto:fullonbaan@gmail.com" class="material-symbols-outlined text-text-base opacity-70 hover:text-gold transition-all text-xl" title="Contact">mail</a>
-      <a href="https://www.fullonbaan.com/" target="_blank">
-        <img alt="FOB" class="w-8 h-8 rounded-full border border-gold/20" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD0K8TwXNmsWZ8xldORIu9ymdlEV6vd_AFaTiyFxyKQlvxmg7YheB7A2qQy1ppB78LCvN83rS7-jNVNLCufXPqaCies4IwesXa0jJ9qCD52t9nDsbFG2hE-g_aoT_nZa7sBa17VEdKBgpTbIp2ziQ2KjzHvjVcGgAQCGkk7lA9gTchhRydh43usnHxoyl8pRplK15VzbiuFBNyIKRq-ruRXKKVGIHjD6t8hc1rc2S6EsniJXopygZp9rGIH__NbVaq9HBYMp2HX7b4"/>
-      </a>
     </div>
   </div>
 </header>
@@ -180,11 +177,11 @@
     </a>
     <a class="side-link flex items-center gap-3 px-6 py-3 text-text-base opacity-60 font-mono hover:bg-surface hover:text-gold transition-all duration-300" href="https://fobexams.vercel.app/" target="_blank">
       <span class="material-symbols-outlined text-sm">workspace_premium</span>
-      <span class="text-xs uppercase tracking-widest">Exams</span>
+      <span class="text-xs uppercase tracking-widest">LN Certifications</span>
     </a>
     <a class="side-link flex items-center gap-3 px-6 py-3 text-text-base opacity-60 font-mono hover:bg-surface hover:text-gold transition-all duration-300" href="https://fobtraining.vercel.app/" target="_blank">
-      <span class="material-symbols-outlined text-sm">school</span>
-      <span class="text-xs uppercase tracking-widest">Training</span>
+      <span class="material-symbols-outlined text-sm">menu_book</span>
+      <span class="text-xs uppercase tracking-widest">LN Ebooks & Videos</span>
     </a>
     <a class="side-link flex items-center gap-3 px-6 py-3 text-text-base opacity-60 font-mono hover:bg-surface hover:text-gold transition-all duration-300" href="https://fob-ln-training.vercel.app/" target="_blank">
       <span class="material-symbols-outlined text-sm">model_training</span>
@@ -192,19 +189,27 @@
     </a>
     <a class="side-link flex items-center gap-3 px-6 py-3 text-text-base opacity-60 font-mono hover:bg-surface hover:text-gold transition-all duration-300" href="https://fobinterview.vercel.app/" target="_blank">
       <span class="material-symbols-outlined text-sm">forum</span>
-      <span class="text-xs uppercase tracking-widest">Interview Prep</span>
+      <span class="text-xs uppercase tracking-widest">LN Interview Prep</span>
     </a>
     <a class="side-link flex items-center gap-3 px-6 py-3 text-text-base opacity-60 font-mono hover:bg-surface hover:text-gold transition-all duration-300" href="https://fobjobs.vercel.app/" target="_blank">
       <span class="material-symbols-outlined text-sm">work</span>
-      <span class="text-xs uppercase tracking-widest">Jobs</span>
+      <span class="text-xs uppercase tracking-widest">LN Jobs</span>
     </a>
     <a class="side-link flex items-center gap-3 px-6 py-3 text-text-base opacity-60 font-mono hover:bg-surface hover:text-gold transition-all duration-300" href="https://fobplaybook.vercel.app/" target="_blank">
       <span class="material-symbols-outlined text-sm">auto_stories</span>
-      <span class="text-xs uppercase tracking-widest">Playbook</span>
+      <span class="text-xs uppercase tracking-widest">LN Playbook</span>
+    </a>
+    <a class="side-link flex items-center gap-3 px-6 py-3 text-text-base opacity-60 font-mono hover:bg-surface hover:text-gold transition-all duration-300" href="https://fob-services.vercel.app/" target="_blank">
+      <span class="material-symbols-outlined text-sm">handyman</span>
+      <span class="text-xs uppercase tracking-widest">Services</span>
     </a>
     <a class="side-link flex items-center gap-3 px-6 py-3 text-text-base opacity-60 font-mono hover:bg-surface hover:text-gold transition-all duration-300" href="https://fobm3training.vercel.app/" target="_blank">
       <span class="material-symbols-outlined text-sm">layers</span>
-      <span class="text-xs uppercase tracking-widest">M3 Training</span>
+      <span class="text-xs uppercase tracking-widest">M3 Ebooks</span>
+    </a>
+    <a class="side-link flex items-center gap-3 px-6 py-3 text-text-base opacity-60 font-mono hover:bg-surface hover:text-gold transition-all duration-300" href="https://fobm3exams.vercel.app/" target="_blank">
+      <span class="material-symbols-outlined text-sm">verified</span>
+      <span class="text-xs uppercase tracking-widest">M3 Certifications</span>
     </a>
   </nav>
 
@@ -248,7 +253,7 @@
         <div class="card p-8 relative overflow-hidden">
           <span class="font-mono text-[10px] text-gold/60 block mb-6">KNOWLEDGE BASE</span>
           <div class="flex items-end gap-2 mb-2">
-            <span class="text-4xl font-bold font-display">10,000<span class="text-accent-blue text-xl">+</span></span>
+            <span class="text-4xl font-bold font-display">25,000<span class="text-accent-blue text-xl">+</span></span>
           </div>
           <p class="text-xs text-text-muted mb-6">Threads Across All Modules</p>
           <div class="stat-bar"><div class="stat-bar-fill" style="width:95%;background:linear-gradient(90deg,#38bdf8,#0ea5e9);"></div></div>
@@ -284,10 +289,10 @@
             <div class="flex items-start gap-4">
               <div class="icon-box icon-ln flex-shrink-0"><span class="material-symbols-outlined">library_books</span></div>
               <div>
-                <h3 class="font-bold text-text-base group-hover:text-gold transition-colors mb-1">FOB Repository</h3>
+                <h3 class="font-bold text-text-base group-hover:text-gold transition-colors mb-1">LN Repository</h3>
                 <p class="text-xs text-text-muted max-w-md">Centralized knowledge base — documentation, guides, and reference material for every Infor LN module.</p>
                 <div class="flex gap-2 mt-2">
-                  <span class="text-[9px] font-mono border border-border px-2 py-0.5 rounded text-text-muted uppercase">10,000+ threads</span>
+                  <span class="text-[9px] font-mono border border-border px-2 py-0.5 rounded text-text-muted uppercase">25,000+ threads</span>
                   <span class="text-[9px] font-mono border border-border px-2 py-0.5 rounded text-text-muted uppercase">9 modules</span>
                 </div>
               </div>
@@ -299,7 +304,7 @@
             <div class="flex items-start gap-4">
               <div class="icon-box icon-ln flex-shrink-0"><span class="material-symbols-outlined">workspace_premium</span></div>
               <div>
-                <h3 class="font-bold text-text-base group-hover:text-gold transition-colors mb-1">FOB Exams</h3>
+                <h3 class="font-bold text-text-base group-hover:text-gold transition-colors mb-1">LN Certifications</h3>
                 <p class="text-xs text-text-muted max-w-md">5,196+ questions across 7 certification tracks. Mock exams, instant scoring, and email certificates.</p>
                 <div class="flex gap-2 mt-2">
                   <span class="text-[9px] font-mono border border-border px-2 py-0.5 rounded text-text-muted uppercase">Certification</span>
@@ -314,7 +319,7 @@
             <div class="flex items-start gap-4">
               <div class="icon-box icon-ln flex-shrink-0"><span class="material-symbols-outlined">school</span></div>
               <div>
-                <h3 class="font-bold text-text-base group-hover:text-gold transition-colors mb-1">Infor LN Materials</h3>
+                <h3 class="font-bold text-text-base group-hover:text-gold transition-colors mb-1">LN Ebooks &amp; Videos</h3>
                 <p class="text-xs text-text-muted max-w-md">Structured learning paths — functional and technical topics from beginner to advanced. Ebooks, videos, and live sessions.</p>
                 <div class="flex gap-2 mt-2">
                   <span class="text-[9px] font-mono border border-border px-2 py-0.5 rounded text-text-muted uppercase">Materials</span>
@@ -329,7 +334,7 @@
             <div class="flex items-start gap-4">
               <div class="icon-box icon-ln flex-shrink-0"><span class="material-symbols-outlined">forum</span></div>
               <div>
-                <h3 class="font-bold text-text-base group-hover:text-gold transition-colors mb-1">FOB Interview Prep</h3>
+                <h3 class="font-bold text-text-base group-hover:text-gold transition-colors mb-1">LN Interview Prep</h3>
                 <p class="text-xs text-text-muted max-w-md">Scenario-based Q&amp;A and practice exercises for Infor LN consultant and developer interviews.</p>
                 <div class="flex gap-2 mt-2">
                   <span class="text-[9px] font-mono border border-border px-2 py-0.5 rounded text-text-muted uppercase">Interview</span>
@@ -344,7 +349,7 @@
             <div class="flex items-start gap-4">
               <div class="icon-box icon-ln flex-shrink-0"><span class="material-symbols-outlined">work</span></div>
               <div>
-                <h3 class="font-bold text-text-base group-hover:text-gold transition-colors mb-1">FOB Jobs</h3>
+                <h3 class="font-bold text-text-base group-hover:text-gold transition-colors mb-1">LN Jobs</h3>
                 <p class="text-xs text-text-muted max-w-md">Curated Infor LN job board — consultant, developer, and analyst roles from global ERP employers.</p>
                 <div class="flex gap-2 mt-2">
                   <span class="text-[9px] font-mono border border-border px-2 py-0.5 rounded text-text-muted uppercase">Careers</span>
@@ -353,6 +358,21 @@
               </div>
             </div>
             <span class="material-symbols-outlined text-text-muted group-hover:text-accent-blue text-sm transition-all">north_east</span>
+          </a>
+          <!-- FOB Services -->
+          <a href="https://fob-services.vercel.app/" target="_blank" class="p-6 hover:bg-surface transition-colors group cursor-pointer flex items-start justify-between no-underline" style="color:inherit;">
+            <div class="flex items-start gap-4">
+              <div class="icon-box icon-co flex-shrink-0"><span class="material-symbols-outlined">handyman</span></div>
+              <div>
+                <h3 class="font-bold text-text-base group-hover:text-gold transition-colors mb-1">LN Services</h3>
+                <p class="text-xs text-text-muted max-w-md">Professional Infor LN consulting, implementation support, and managed services for enterprises worldwide.</p>
+                <div class="flex gap-2 mt-2">
+                  <span class="text-[9px] font-mono border border-border px-2 py-0.5 rounded text-text-muted uppercase">Consulting</span>
+                  <span class="text-[9px] font-mono border border-border px-2 py-0.5 rounded text-text-muted uppercase">Services</span>
+                </div>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-text-muted group-hover:text-gold text-sm transition-all">north_east</span>
           </a>
         </div>
       </div>
@@ -368,7 +388,7 @@
             <span class="material-symbols-outlined text-base">school</span> M3 Training <span class="material-symbols-outlined text-sm">north_east</span>
           </a>
           <a href="https://fobm3exams.vercel.app/" target="_blank" class="flex items-center gap-2 text-accent-purple text-sm font-semibold no-underline hover:text-text-base transition-colors">
-            <span class="material-symbols-outlined text-base">quiz</span> M3 Exams <span class="material-symbols-outlined text-sm">north_east</span>
+            <span class="material-symbols-outlined text-base">verified</span> M3 Certifications <span class="material-symbols-outlined text-sm">north_east</span>
           </a>
         </div>
       </div>
@@ -381,7 +401,7 @@
           <div>
             <div class="flex justify-between mb-1.5">
               <span class="text-sm text-text-muted">Knowledge Threads</span>
-              <span class="font-mono text-sm text-accent-blue">10,000+</span>
+              <span class="font-mono text-sm text-accent-blue">25,000+</span>
             </div>
             <div class="stat-bar"><div class="stat-bar-fill" style="width:95%;background:linear-gradient(90deg,#38bdf8,#0ea5e9);"></div></div>
           </div>
@@ -405,6 +425,13 @@
               <span class="font-mono text-sm text-accent-green">7 tracks</span>
             </div>
             <div class="stat-bar"><div class="stat-bar-fill" style="width:70%;background:linear-gradient(90deg,#34d399,#059669);"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between mb-1.5">
+              <span class="text-sm text-text-muted">M3 Certification Tracks</span>
+              <span class="font-mono text-sm text-accent-purple">5 tracks</span>
+            </div>
+            <div class="stat-bar"><div class="stat-bar-fill" style="width:55%;background:linear-gradient(90deg,#a78bfa,#7c3aed);"></div></div>
           </div>
         </div>
         <div class="mt-6 pt-5 border-t border-border flex justify-between items-center">
@@ -440,9 +467,16 @@
           <a class="flex items-center justify-between p-4 bg-surface hover:bg-surface-hi rounded-lg transition-all group no-underline" href="https://fobm3exams.vercel.app/" target="_blank" style="color:inherit;">
             <div class="flex items-center gap-3">
               <span class="material-symbols-outlined text-accent-purple">layers</span>
-              <span class="text-sm">M3 Exam Portal</span>
+              <span class="text-sm">M3 Certifications</span>
             </div>
             <span class="material-symbols-outlined text-text-muted group-hover:text-accent-purple text-sm transition-all">north_east</span>
+          </a>
+          <a class="flex items-center justify-between p-4 bg-surface hover:bg-surface-hi rounded-lg transition-all group no-underline" href="https://fob-services.vercel.app/" target="_blank" style="color:inherit;">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-gold">handyman</span>
+              <span class="text-sm">FOB Services</span>
+            </div>
+            <span class="material-symbols-outlined text-text-muted group-hover:text-gold text-sm transition-all">north_east</span>
           </a>
         </div>
       </div>
@@ -508,13 +542,14 @@
         </div>
       </div>
 
-      <!-- Telemetry Card -->
-      <div class="bg-surface p-6 rounded-lg border-l-4 border-gold shadow-xl">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="material-symbols-outlined text-gold text-lg">monitoring</span>
-          <span class="font-mono text-[10px] text-gold">ECOSYSTEM PULSE</span>
+      <!-- Corporate Video -->
+      <div class="card p-8">
+        <span class="font-mono text-[10px] text-gold/60 block mb-6 uppercase">Corporate Profile</span>
+        <h2 class="text-xl font-bold text-text-base mb-4">Watch Our Story</h2>
+        <div class="relative w-full rounded-lg overflow-hidden" style="padding-bottom:56.25%;">
+          <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube-nocookie.com/embed/zReiT7dVx1M" title="FullOnBaan Corporate Profile" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
-        <p class="text-xs text-text-base leading-relaxed">FOB Ecosystem — serving Infor LN & M3 professionals worldwide with training, certifications, and career resources since 2015.</p>
+        <p class="text-xs text-text-muted mt-4 leading-relaxed">FOB Ecosystem — serving Infor LN & M3 professionals worldwide with training, certifications, and career resources since 2015.</p>
       </div>
 
     </div>
@@ -536,6 +571,8 @@
       <a href="https://fobexams.vercel.app/" target="_blank" class="text-text-muted hover:text-gold transition-colors no-underline">Exams</a>
       <a href="https://fobjobs.vercel.app/" target="_blank" class="text-text-muted hover:text-gold transition-colors no-underline">Jobs</a>
       <a href="https://fob-ln-training.vercel.app/" target="_blank" class="text-text-muted hover:text-gold transition-colors no-underline">LN Training</a>
+      <a href="https://fob-services.vercel.app/" target="_blank" class="text-text-muted hover:text-gold transition-colors no-underline">Services</a>
+      <a href="https://fobm3exams.vercel.app/" target="_blank" class="text-text-muted hover:text-gold transition-colors no-underline">M3 Certifications</a>
     </div>
   </div>
 </footer>
@@ -563,6 +600,12 @@
     <span class="text-[8px] font-mono uppercase tracking-tighter">About</span>
   </a>
 </div>
+
+<!-- ═══════════ FLOATING WHATSAPP BUTTON ═══════════ -->
+<a href="https://wa.me/916360593122?text=Hi%2C%20I%27m%20interested%20in%20FullOnBaan%20Infor%20LN%20training.%20Could%20you%20share%20more%20details%3F" target="_blank" id="whatsapp-fab" style="position:fixed;bottom:28px;right:28px;z-index:100;display:flex;align-items:center;gap:10px;background:#25D366;color:#fff;padding:12px 22px;border-radius:50px;font-size:0.88rem;font-weight:600;font-family:'Inter',sans-serif;text-decoration:none;box-shadow:0 6px 24px rgba(37,211,102,0.35);transition:transform 0.2s,box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 10px 32px rgba(37,211,102,0.45)'" onmouseout="this.style.transform='translateY(0)';this.style.boxShadow='0 6px 24px rgba(37,211,102,0.35)'">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="#fff"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  Chat with us
+</a>
 
 <!-- ═══════════ THEME TOGGLE SCRIPT ═══════════ -->
 <script>
